@@ -1,40 +1,37 @@
-package com.example.sedef.week7;
-
+package tr.edu.mu.week78;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.sedef.week7.placeholder.PlaceholderContent.PlaceholderItem;
-import com.example.sedef.week7.databinding.FragmentMovieBinding;
+import tr.edu.mu.week78.databinding.FragmentMovieBinding;
 
 import java.util.List;
 
-/**
- * {@link RecyclerView.Adapter} that can display a {@link PlaceholderItem}.
- * TODO: Replace the implementation with code for your data type.
- */
+
 public class MyMovieRecyclerViewAdapter extends RecyclerView.Adapter<MyMovieRecyclerViewAdapter.ViewHolder> {
 
     private final List<Movie> mValues;
+
     private MovieFragment.OnMovieSelected mListener;
     int selectedIndex;
-
-    public MyMovieRecyclerViewAdapter(List<Movie> items, MovieFragment.OnMovieSelected mListener) {
+    public MyMovieRecyclerViewAdapter(List<Movie> items, MovieFragment.OnMovieSelected listener) {
         mValues = items;
-        mListener = mListener;
+        mListener = listener;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_movie , parent, false);
-
+        View view = LayoutInflater.from(parent.getContext()).
+                inflate(R.layout.fragment_movie, parent, false);
         return new ViewHolder(view);
 
     }
+
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
@@ -44,12 +41,11 @@ public class MyMovieRecyclerViewAdapter extends RecyclerView.Adapter<MyMovieRecy
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(mListener != null) {
+                if (mListener != null) {
                     mListener.movieSelected(holder.mItem);
                     notifyItemChanged(selectedIndex);
                     selectedIndex = holder.getLayoutPosition();
                     notifyItemChanged(selectedIndex);
-
                 }
             }
         });
@@ -71,7 +67,7 @@ public class MyMovieRecyclerViewAdapter extends RecyclerView.Adapter<MyMovieRecy
             super(view);
             mView = view;
             mIdView = (TextView) view.findViewById(R.id.item_number);
-            mContentView =(TextView) view.findViewById(R.id.content);
+            mContentView = (TextView) view.findViewById(R.id.content);
         }
 
         @Override

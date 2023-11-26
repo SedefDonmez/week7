@@ -1,4 +1,4 @@
-package com.example.sedef.week7;
+package tr.edu.mu.week78;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,18 +13,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.sedef.week7.placeholder.PlaceholderContent;
+import org.w3c.dom.ls.LSInput;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
 /**
  * A fragment representing a list of Items.
  */
 public class MovieFragment extends Fragment {
+
     private OnMovieSelected listener;
-    private List<Movie> movies = new ArrayList<>();
+    private List<Movie> movies = new ArrayList<Movie>();
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -51,7 +53,6 @@ public class MovieFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
@@ -66,8 +67,8 @@ public class MovieFragment extends Fragment {
                         "clandestine empire to his reluctant son."));
         movies.add(new Movie("Pulp Fiction","Quentin Tarantino",1994,
                 Arrays.asList(new String[]{"John Travolta", "Uma Thurman", "Samuel L. Jackson"}),
-                        "The aging patriarch of an organized crime dynasty transfers control of " +
-                                "his clandestine empire to his reluctant son."));
+                "The aging patriarch of an organized crime dynasty transfers control of " +
+                        "his clandestine empire to his reluctant son."));
     }
 
 
@@ -90,20 +91,21 @@ public class MovieFragment extends Fragment {
         }
         return view;
     }
+
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        if(context instanceof  OnMovieSelected) {
-            listener =(OnMovieSelected) context;
+        if(context instanceof OnMovieSelected){
+            listener = (OnMovieSelected) context;
         }
     }
+
     @Override
     public void onDetach() {
         super.onDetach();
         listener = null;
     }
-    public  interface OnMovieSelected {
+    public interface OnMovieSelected{
         void movieSelected(Movie movie);
     }
-
 }

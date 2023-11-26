@@ -1,4 +1,4 @@
-package com.example.sedef.week7;
+package tr.edu.mu.week78;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.sedef.week7", appContext.getPackageName());
+        assertEquals("tr.edu.mu.week78", appContext.getPackageName());
     }
 }

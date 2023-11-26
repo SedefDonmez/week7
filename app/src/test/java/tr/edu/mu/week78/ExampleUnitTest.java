@@ -1,4 +1,4 @@
-package com.example.sedef.week7;
+package tr.edu.mu.week78;
 
 import org.junit.Test;
 
